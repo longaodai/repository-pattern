@@ -11,8 +11,8 @@ use Illuminate\Support\Collection;
  */
 class RepositoryParams
 {
-    protected mixed $data;
-    protected mixed $options;
+    protected $data;
+    protected $options;
 
     /**
      * @param $data
@@ -29,7 +29,7 @@ class RepositoryParams
      *
      * @return array
      */
-    private function prepareParameter($param): array
+    private function prepareParameter($param)
     {
         switch (true) {
             case $param instanceof Collection:
@@ -57,7 +57,7 @@ class RepositoryParams
      *
      * @return mixed
      */
-    public function get($key = null): mixed
+    public function get($key = null)
     {
         if (!empty($key)) {
             return $this->data[$key] ?? null;
@@ -73,7 +73,7 @@ class RepositoryParams
      *
      * @return mixed
      */
-    public function option($key = null): mixed
+    public function option($key = null)
     {
         if (!empty($key)) {
             return $this->options[$key] ?? null;
@@ -87,7 +87,7 @@ class RepositoryParams
      *
      * @return array
      */
-    public function all(): array
+    public function all()
     {
         return [
             'data' => $this->get(),

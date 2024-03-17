@@ -234,7 +234,7 @@ abstract class BaseRepository
      *
      * @return int
      */
-    protected function getPaginate($params): int
+    protected function getPaginate($params)
     {
         return (!empty($params->option('paginate')) ? $params->option('paginate') : 20);
     }
