@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 
 /**
  * Class RepositoryParams
+ *
+ * @package LongAoDai\Repositories
  */
 class RepositoryParams
 {

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 /**
  * Class BaseRepository
  *
- * @package #Namespace
+ * @package LongAoDai\Repositories
  */
 abstract class BaseRepository
 {
@@ -210,7 +210,7 @@ abstract class BaseRepository
      *
      * @return BaseRepository
      */
-    protected function filter($params): BaseRepository
+    protected function filter($params)
     {
         return $this;
     }
@@ -222,7 +222,7 @@ abstract class BaseRepository
      *
      * @return BaseRepository
      */
-    protected function mark($params): BaseRepository
+    protected function mark($params)
     {
         return $this;
     }
