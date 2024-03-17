@@ -1,0 +1,25 @@
+{
+  "name": "repository/pattern",
+  "description": "This is library support for project use repository design pattern",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Vo Chi Long",
+      "email": "vochilong.work@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "illuminate/database": "^8.0",
+    "illuminate/support": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "LongAoDai\\Repositories\\": "src/"
+    },
+    "files": []
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
