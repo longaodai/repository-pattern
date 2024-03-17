@@ -6,7 +6,7 @@ This package provides a base repository implementation following the repository 
 
 You can install this package via Composer. Run the following command in your terminal:
 ```bash
-composer require longaodai/hion-repository-pattern
+composer require longaodai/repository-pattern
 ```
 
 ## Usage
@@ -61,3 +61,44 @@ protected function mark($params): UserRepository
 }
 ```
 You can then use methods provided by the BaseRepository class such as all(), find(), create(), update(), and delete() in your repository classes.
+
+In controller file you can use
+```php
+public function index()
+{
+    $repository = app(UserRepository::class);
+    // Get list with pagination
+    $user = $repository->getList($data = null, $options = null);
+    // Get all data
+    $user = $repository->all($data = null, $options = null);
+    // Find by id
+    $user = $repository->find(['id' => 1]);
+    // Update data
+    $user = $repository->update(
+        collect([
+            'name' => 'Vo Chi Long'
+        ]),
+        collect(['id' => 1])
+    );
+    // Create data
+    $user = $repository->create(collect([
+        'name' => 'Vo Chi Long',
+        'email' => 'vochilong.work@gmail.com',
+        'password' => bcrypt('password'),
+    ]));
+    // Get first by params condition
+    $user = $repository->first(collect([
+        'name' => 'Long'
+    ]));
+    // Update or Create by options condition
+    $user = $repository->updateOrCreate(collect([
+        'name' => 'Vo Chi Long'
+    ]), collect([
+        'email' => 'vochilong.work@gmail.com'
+    ]));
+    // Delete data by condition
+    $user = $repository->destroy(['id' => 10]);
+    
+    return json_encode($user ?? []);
+}
+```
