@@ -1,0 +1,21 @@
+<?php
+
+namespace #Namespace;
+
+use LongAoDai\Repositories\BaseRepository;
+
+/**
+ * Class #RepositoryClassName
+ *
+ * @package #Namespace
+ */
+class #RepositoryClassName extends BaseRepository implements #RepositoryInterfaceName
+{
+    /**
+     * @return mixed
+     */
+    public function model()
+    {
+        //TODO : return Model::class
+    }
+}
