@@ -9,6 +9,52 @@ You can install this package via Composer. Run the following command in your ter
 composer require longaodai/repository-pattern
 ```
 
+In `config/app.php` add provider
+```php
+'providers' => ServiceProvider::defaultProviders()->merge([
+        /*
+         * Package Service Providers...
+         */
+
+        /*
+         * Application Service Providers...
+         */
+        \LongAoDai\Repositories\RepositoryServiceProvider::class,
+    ])->toArray(),
+```
+Public config file `pattern.php`
+```bash
+php artisan vendor:publish --tag=longaodai-repository-pattern
+```
+_Result exec 🍀:_
+```php
+ Copying file [vendor/longaodai/repository-pattern/config/pattern.php] to [config/pattern.php] ............................................... DONE
+```
+😀  Now, you can the create repository by command instead of creating it manually ~.~
+```bash
+php artisan setup:repository Comment
+```
+_Result exec 🍀:_
+```php
+Repository Comment created successfully !!!
+Implement: App\Repositories\CommentEloquentRepository.php
+Interface: App\Repositories\CommentRepositoryInterface.php
+```
+After running the first repository creation command, in the `app/Providers` folder there will be auto create a `RepositoryServiceProvider.php` file. Pls add more into `config/app.php` for register custom provider.
+```php
+'providers' => ServiceProvider::defaultProviders()->merge([
+        /*
+         * Package Service Providers...
+         */
+
+        /*
+         * Application Service Providers...
+         */
+        \LongAoDai\Repositories\RepositoryServiceProvider::class,
+        \App\Providers\RepositoryServiceProvider::class,
+    ])->toArray(),
+```
+
 ## Usage
 To use the base repository in your project, you need to create repository classes that extend the BaseRepository class provided by this package.
 
